@@ -9,12 +9,16 @@ public class EnterVehicle : MonoBehaviour
     public GameObject guiObj;
     GameObject player;
 
+    public Camera camplayer;
+    public Camera camCar;
 
     void Start()
     {
         vehicleScript = GetComponent<CarUserControl>();
         player = GameObject.FindWithTag("Player");
         guiObj.SetActive(false);
+        camplayer.enabled = true;
+        camCar.enabled = false;
     }
 
     // Update is called once per frame
@@ -30,6 +34,8 @@ public class EnterVehicle : MonoBehaviour
                 vehicleScript.enabled = true;
                 player.SetActive(false);
                 inVehicle = true;
+                camCar.enabled = true;
+                camplayer.enabled = false;
             }
         }
     }
@@ -48,6 +54,20 @@ public class EnterVehicle : MonoBehaviour
             player.SetActive(true);
             player.transform.parent = null;
             inVehicle = false;
+            camplayer.enabled = true;
+            camCar.enabled = false;
+           
         }
+
+    //if(inVehicle == true)
+       // {
+            
+            //camCar.enabled = true;
+      //  }
+      //  if (inVehicle == false)
+     //   {
+
+        //   camplayer.enabled = true;
+      //  }
     }
 }
