@@ -8,7 +8,32 @@ public class LightingManager : MonoBehaviour
     [SerializeField] private LightingPreset Preset;
     //Variables
     [SerializeField, Range(0, 24)] private float TimeOfDay;
-   
+
+    private bool bank;
+    private bool buyBall;
+    private bool groceries;
+    private bool vistGF;
+    private bool WFH;
+    private bool bed;
+
+    public GameObject Check_Obj_bank;
+//public GameObject Obj_buBall;
+    //public GameObject Obj_groceries;
+  //  public GameObject Obj_vistGF;
+   // public GameObject Obj_WFH;
+  //  public GameObject Obj_bed;
+
+    void Start()
+    {
+        bank = false;
+        buyBall = false;
+        groceries = false;
+        vistGF = false;
+        WFH = false;
+        bed = false;
+
+    }
+
     private void Update()
     {
         if (Preset == null)
@@ -70,4 +95,21 @@ public class LightingManager : MonoBehaviour
             }
         }
     }
+    void OnTriggerEnter(Collider other)
+    {
+        if (Check_Obj_bank)
+        {
+            Debug.Log("You Thought it was Debug, but it was me DIO!");
+            if (bank == false)
+            {
+                Debug.Log(bank);
+                TimeOfDay ++;
+                Debug.Log(TimeOfDay);
+                bank = true;
+                
+
+            }
+        }
+    }
+
 }
