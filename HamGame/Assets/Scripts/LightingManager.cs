@@ -14,14 +14,25 @@ public class LightingManager : MonoBehaviour
     private bool groceries;
     private bool vistGF;
     private bool WFH;
+    private bool allTasksDone;
     private bool bed;
 
+    private bool Activebank;
+    private bool ActivebuyBall;
+    private bool Activegroceries;
+    private bool ActivevistGF;
+    private bool ActiveWFH;
+    private bool Activebed;
+
+
     public GameObject Check_Obj_bank;
-//public GameObject Obj_buBall;
-    //public GameObject Obj_groceries;
-  //  public GameObject Obj_vistGF;
-   // public GameObject Obj_WFH;
-  //  public GameObject Obj_bed;
+    public GameObject Obj_buBall;
+    public GameObject Obj_groceries;
+    public GameObject Obj_vistGF;
+    public GameObject Obj_WFH;
+    public GameObject Obj_bed;
+
+
 
     void Start()
     {
@@ -30,6 +41,7 @@ public class LightingManager : MonoBehaviour
         groceries = false;
         vistGF = false;
         WFH = false;
+        allTasksDone = false;
         bed = false;
 
     }
@@ -51,6 +63,8 @@ public class LightingManager : MonoBehaviour
         {
             UpdateLighting(TimeOfDay / 24f);
         }
+        
+        
     }
 
 
@@ -95,20 +109,78 @@ public class LightingManager : MonoBehaviour
             }
         }
     }
+
+    private void FixedUpdate()
+    {
+        activeEvents();
+    }
+
+
     void OnTriggerEnter(Collider other)
     {
         if (Check_Obj_bank)
         {
-            Debug.Log("You Thought it was Debug, but it was me DIO!");
+     
             if (bank == false)
             {
                 Debug.Log(bank);
                 TimeOfDay ++;
                 Debug.Log(TimeOfDay);
                 bank = true;
-                
-
+      
             }
+        }
+    }
+
+    void activeEvents()
+    {
+        //Time where the bank is active
+        if(TimeOfDay >= 6 && TimeOfDay <= 15 && bank == false)
+        {
+            Activebank = true;
+            Debug.Log("The Bank is Open");
+        }
+
+        //Time where the HamMart is active
+        if (TimeOfDay >= 10 && TimeOfDay <= 15 && buyBall == false)
+        {
+            ActivebuyBall = true;
+            Debug.Log("The HamMart is Open");
+        }
+
+        //Time where the Visting your GF is active
+        if (TimeOfDay >= 10 && TimeOfDay <= 15 && vistGF == false)
+        {
+            ActivevistGF = true;
+            Debug.Log("The GF is home");
+        }
+
+        //Time where the Groceries is active
+        if (TimeOfDay >= 10 && TimeOfDay <= 15 && groceries == false)
+        {
+            Activegroceries= true;
+            Debug.Log("The Grocerie store is Open");
+        }
+
+        //Time where the work from hom  is active
+        if (TimeOfDay >= 9 && TimeOfDay <= 19 && WFH == false)
+        {
+            ActiveWFH = true;
+            Debug.Log("You can work from Home now");
+        }
+
+        // Lets the code now that all day 1 tasks are compete
+        if (bank == true && buyBall == true && vistGF == true && groceries == true && WFH == true)
+        {
+            allTasksDone = true;
+            Debug.Log("All taskes are done");
+        }
+
+        //Time where the Bed  is active
+        if (TimeOfDay <= 22 && allTasksDone == true && bed == false)
+        {
+            Activebed = true;
+            Debug.Log("The bed is active");
         }
     }
 
