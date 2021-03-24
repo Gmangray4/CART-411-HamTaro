@@ -120,19 +120,19 @@ public class LightingManager : MonoBehaviour
     {
 
         // Checks if the user goes to the bank
-        if (Check_Obj_bank)
+        if (other.gameObject == Check_Obj_bank)
         {
             if (bank == false && Activebank == true)
             {
-              
                 TimeOfDay ++;
                 Debug.Log("You have gone to the bank");
                 bank = true;    
             }
         }
 
+        //Not working
         // Checks if the user goes to HamMart to buy the ball
-        if (Check_Obj_buyBall)
+        if (other.gameObject == Check_Obj_buyBall)
         {
 
             if (buyBall == false) 
@@ -144,27 +144,25 @@ public class LightingManager : MonoBehaviour
                     buyBall = true;
                 }
             }
-            
         }
 
         // Checks if the user goes to the bank
-        if (Check_Obj_groceries)
+        if (other.gameObject == Check_Obj_groceries)
         {
-
             if (groceries == false)
             {
                 if (bank == true && Activegroceries == true)
                 {
                    
                     TimeOfDay++;
-                    Debug.Log("You groceries!");
+                    Debug.Log("You got groceries!");
                     groceries = true;
                 }
             }
         }
 
         // Checks if the user goes to the bank
-        if (Check_Obj_vistGF)
+        if (other.gameObject == Check_Obj_vistGF)
         {
             if (vistGF == false) 
             {
@@ -179,10 +177,10 @@ public class LightingManager : MonoBehaviour
             
         }
 
-        // Checks if the user goes to the bank
-        if (Check_Obj_WFH)
+        // Checks if the user Works from home
+        if (other.gameObject == Check_Obj_WFH)
         {
-            if(WFH == false)
+            if(WFH == false )
             {
                 if (ActiveWFH == true)
                 {
@@ -193,14 +191,17 @@ public class LightingManager : MonoBehaviour
             }
            
         }
-        if (Check_Obj_bed)
+
+        if (other.gameObject == Check_Obj_bed)
         {
-            if (bank == false && Activebed == true)
+            if (bed == false && Activebed == true)
             {
                 Debug.Log("Day 1 is over");
             }
         }
     }
+
+
 
     void activeEvents()
     {
@@ -216,6 +217,10 @@ public class LightingManager : MonoBehaviour
         {
             ActivebuyBall = true;
             Debug.Log("The HamMart is Open");
+        }
+        else
+        {
+            Debug.Log("The HamMart is clsoed");
         }
 
         //Time where the Visting your GF is active
@@ -254,10 +259,7 @@ public class LightingManager : MonoBehaviour
         }
     }
 
-    void completedTaskCheck()
-    {
-
-    }
+  
 
 
 }
