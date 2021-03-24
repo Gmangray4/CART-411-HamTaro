@@ -26,11 +26,11 @@ public class LightingManager : MonoBehaviour
 
 
     public GameObject Check_Obj_bank;
-    public GameObject Obj_buBall;
-    public GameObject Obj_groceries;
-    public GameObject Obj_vistGF;
-    public GameObject Obj_WFH;
-    public GameObject Obj_bed;
+    public GameObject Check_Obj_buyBall;
+    public GameObject Check_Obj_groceries;
+    public GameObject Check_Obj_vistGF;
+    public GameObject Check_Obj_WFH;
+    public GameObject Check_Obj_bed;
 
 
 
@@ -118,16 +118,86 @@ public class LightingManager : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
+
+        // Checks if the user goes to the bank
         if (Check_Obj_bank)
         {
-     
-            if (bank == false)
+            if (bank == false && Activebank == true)
             {
-                Debug.Log(bank);
+              
                 TimeOfDay ++;
-                Debug.Log(TimeOfDay);
-                bank = true;
-      
+                Debug.Log("You have gone to the bank");
+                bank = true;    
+            }
+        }
+
+        // Checks if the user goes to HamMart to buy the ball
+        if (Check_Obj_buyBall)
+        {
+
+            if (buyBall == false) 
+            {
+                if (bank == true && ActivebuyBall == true)
+                {
+                    TimeOfDay++;
+                    Debug.Log("You bought the ball!");
+                    buyBall = true;
+                }
+            }
+            
+        }
+
+        // Checks if the user goes to the bank
+        if (Check_Obj_groceries)
+        {
+
+            if (groceries == false)
+            {
+                if (bank == true && Activegroceries == true)
+                {
+                   
+                    TimeOfDay++;
+                    Debug.Log("You groceries!");
+                    groceries = true;
+                }
+            }
+        }
+
+        // Checks if the user goes to the bank
+        if (Check_Obj_vistGF)
+        {
+            if (vistGF == false) 
+            {
+                if (ActivevistGF == true)
+                {
+
+                    TimeOfDay++;
+                    Debug.Log("You visted your GF");
+                    vistGF = true;
+                }
+            }
+            
+        }
+
+        // Checks if the user goes to the bank
+        if (Check_Obj_WFH)
+        {
+            if(WFH == false)
+            {
+                if (ActiveWFH == true)
+                {
+                    TimeOfDay++;
+                    Debug.Log("You worked your job!");
+                    WFH = true;
+                }
+            }
+           
+        }
+        if (Check_Obj_bed)
+        {
+            if (bank == false && Activebed == true)
+            {
+                Debug.Log("Day 1 is over");
             }
         }
     }
@@ -183,5 +253,11 @@ public class LightingManager : MonoBehaviour
             Debug.Log("The bed is active");
         }
     }
+
+    void completedTaskCheck()
+    {
+
+    }
+
 
 }
