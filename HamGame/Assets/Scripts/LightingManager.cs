@@ -24,6 +24,9 @@ public class LightingManager : MonoBehaviour
     private bool ActiveWFH;
     private bool Activebed;
 
+    private bool Curfew;
+
+    private bool GameOver;
 
     public GameObject Check_Obj_bank;
     public GameObject Check_Obj_buyBall;
@@ -32,11 +35,14 @@ public class LightingManager : MonoBehaviour
     public GameObject Check_Obj_WFH;
     public GameObject Check_Obj_bed;
 
+    
+
 
 
     void Start()
     {
-        bank = false;
+       GameOver = false;
+       bank = false;
         buyBall = false;
         groceries = false;
         vistGF = false;
@@ -113,6 +119,9 @@ public class LightingManager : MonoBehaviour
     private void FixedUpdate()
     {
         activeEvents();
+        activeCurfur();
+        endingRank();
+
     }
 
 
@@ -252,14 +261,53 @@ public class LightingManager : MonoBehaviour
         }
 
         //Time where the Bed  is active
-        if (TimeOfDay <= 22 && allTasksDone == true && bed == false)
+        if (TimeOfDay <= 15 && allTasksDone == true && bed == false)
         {
             Activebed = true;
             Debug.Log("The bed is active");
         }
     }
 
-  
+    void activeCurfur()
+    {
+        if (TimeOfDay >= 19)
+        {
+            Debug.Log("Curfew started");
+            Curfew = true;
+        }
+        else 
+        {
+            Debug.Log("Curfew Not started yet");
+            Curfew = false; 
+        }
+    }
+
+
+    void endingRank()
+    {
+        //Rank E: Falling to go to bed in time on the first day.
+        if (TimeOfDay >= 23 && bed == false)
+        {
+            Debug.Log("Ending Rank: E");
+            GameOver = true;
+        }
+        //Rank E: Falling to do work for home remote job.
+        if (TimeOfDay >= 19 && WFH == false)
+        {
+            Debug.Log("Ending Rank: E-");
+            GameOver = true;
+        }
+        //Rank F: Failing to complete any of the tasks on the first day.
+        if (TimeOfDay >= 15 && bank == false || TimeOfDay >= 15 && groceries == false || TimeOfDay >= 15 && vistGF == false)
+        {
+            Debug.Log("Ending Rank: F");
+            GameOver = true;
+        }
+    }
+
+
+
+
 
 
 }
