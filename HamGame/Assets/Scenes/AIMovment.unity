@@ -3565,7 +3565,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 458106074}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -3618,9 +3618,8 @@ Transform:
   m_Children:
   - {fileID: 944047587}
   - {fileID: 885759671}
-  - {fileID: 1010986098}
   m_Father: {fileID: 0}
-  m_RootOrder: 26
+  m_RootOrder: 27
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!43 &467161448
 Mesh:
@@ -9632,7 +9631,7 @@ MonoBehaviour:
     tags:
     - Player
     cachePoint: 0
-  movementSpeed: 5
+  movementSpeed: 10
   rotationSpeed: 360
   animationStatesComponent: {fileID: 458106077}
   animationStates:
@@ -10882,7 +10881,7 @@ GameObject:
   - component: {fileID: 1010986098}
   - component: {fileID: 1010986101}
   - component: {fileID: 1010986100}
-  - component: {fileID: 1010986102}
+  - component: {fileID: 1010986099}
   m_Layer: 0
   m_Name: Plane
   m_TagString: Untagged
@@ -10898,12 +10897,27 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1010986097}
   m_LocalRotation: {x: -0, y: 0.9830956, z: -0.18309344, w: 0}
-  m_LocalPosition: {x: -0.01, y: 0.21, z: 0.033}
-  m_LocalScale: {x: 0.10840112, y: 0.13640833, z: 0.13902088}
+  m_LocalPosition: {x: 194.8, y: 3, z: 82.20098}
+  m_LocalScale: {x: 0.4000003, y: 0.25, z: 0.40000042}
   m_Children: []
-  m_Father: {fileID: 458106083}
-  m_RootOrder: 2
+  m_Father: {fileID: 0}
+  m_RootOrder: 26
   m_LocalEulerAnglesHint: {x: 21.1, y: 180, z: 0}
+--- !u!114 &1010986099
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1010986097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ae11f672c9c6c24691556008678ab17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  plane: {fileID: 1010986097}
+  Obj: {fileID: 458106074}
+  objY: 3
 --- !u!23 &1010986100
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -10951,20 +10965,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1010986097}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &1010986102
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1010986097}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ae11f672c9c6c24691556008678ab17, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  plane: {fileID: 1010986097}
-  fixedRotation: 180
 --- !u!1001 &1041674991
 PrefabInstance:
   m_ObjectHideFlags: 0

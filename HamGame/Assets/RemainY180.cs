@@ -6,19 +6,17 @@ public class RemainY180 : MonoBehaviour
 {
 
     public GameObject plane;
-    // Start is called before the first frame update
-  
-    
-    Transform t;
-    public float fixedRotation = 180;
+   
 
-    void Start()
-    {
-        t = transform;
-    }
+    //public float fixedRotation = 180;
+    
+    public GameObject Obj;
+    public float objY;
 
     void Update()
     {
-        plane.transform.eulerAngles = new Vector3(t.eulerAngles.x, fixedRotation, t.eulerAngles.z);
+
+        // plane.transform.position = new Vector3(100, 100, 100);
+        plane.transform.position = new Vector3(Obj.transform.position.x, objY, Obj.transform.position.z);
     }
 }
