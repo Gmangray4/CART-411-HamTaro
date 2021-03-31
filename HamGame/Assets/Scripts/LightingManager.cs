@@ -13,7 +13,7 @@ public class LightingManager : MonoBehaviour
     private bool buyBall;
     private bool groceries;
     private bool vistGF;
-    private bool WFH;
+
     private bool allTasksDone;
     private bool bed;
 
@@ -21,7 +21,7 @@ public class LightingManager : MonoBehaviour
     private bool ActivebuyBall;
     private bool Activegroceries;
     private bool ActivevistGF;
-    private bool ActiveWFH;
+   
     private bool Activebed;
 
     private bool Curfew;
@@ -32,10 +32,10 @@ public class LightingManager : MonoBehaviour
     public GameObject Check_Obj_buyBall;
     public GameObject Check_Obj_groceries;
     public GameObject Check_Obj_vistGF;
-    public GameObject Check_Obj_WFH;
     public GameObject Check_Obj_bed;
+    public GameObject Check_Obj_Cop;
 
-    
+
 
 
 
@@ -46,7 +46,7 @@ public class LightingManager : MonoBehaviour
         buyBall = false;
         groceries = false;
         vistGF = false;
-        WFH = false;
+    
         allTasksDone = false;
         bed = false;
 
@@ -187,18 +187,12 @@ public class LightingManager : MonoBehaviour
         }
 
         // Checks if the user Works from home
-        if (other.gameObject == Check_Obj_WFH)
+        if (other.gameObject == Check_Obj_Cop)
         {
-            if(WFH == false )
-            {
-                if (ActiveWFH == true)
-                {
-                    TimeOfDay++;
-                    Debug.Log("You worked your job!");
-                    WFH = true;
-                }
-            }
-           
+
+            Debug.Log("Ending Rank: D-");
+            Debug.Log("Cop!");
+            GameOver = true;
         }
 
         if (other.gameObject == Check_Obj_bed)
@@ -246,15 +240,8 @@ public class LightingManager : MonoBehaviour
             Debug.Log("The Grocerie store is Open");
         }
 
-        //Time where the work from hom  is active
-        if (TimeOfDay >= 9 && TimeOfDay <= 19 && WFH == false)
-        {
-            ActiveWFH = true;
-            Debug.Log("You can work from Home now");
-        }
-
         // Lets the code now that all day 1 tasks are compete
-        if (bank == true && buyBall == true && vistGF == true && groceries == true && WFH == true)
+        if (bank == true && buyBall == true && vistGF == true && groceries == true)
         {
             allTasksDone = true;
             Debug.Log("All taskes are done");
@@ -291,12 +278,7 @@ public class LightingManager : MonoBehaviour
             Debug.Log("Ending Rank: E");
             GameOver = true;
         }
-        //Rank E: Falling to do work for home remote job.
-        if (TimeOfDay >= 19 && WFH == false)
-        {
-            Debug.Log("Ending Rank: E-");
-            GameOver = true;
-        }
+ 
         //Rank F: Failing to complete any of the tasks on the first day.
         if (TimeOfDay >= 15 && bank == false || TimeOfDay >= 15 && groceries == false || TimeOfDay >= 15 && vistGF == false)
         {
