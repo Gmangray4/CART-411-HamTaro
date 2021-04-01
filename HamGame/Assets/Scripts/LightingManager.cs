@@ -34,6 +34,7 @@ public class LightingManager : MonoBehaviour
     public GameObject Check_Obj_vistGF;
     public GameObject Check_Obj_bed;
     public GameObject Check_Obj_Cop;
+    public GameObject Check_Obj_NPC;
 
 
 
@@ -186,15 +187,6 @@ public class LightingManager : MonoBehaviour
             
         }
 
-        // Checks if the user Works from home
-        if (other.gameObject == Check_Obj_Cop)
-        {
-
-            Debug.Log("Ending Rank: D-");
-            Debug.Log("Cop!");
-            GameOver = true;
-        }
-
         if (other.gameObject == Check_Obj_bed)
         {
             if (bed == false && Activebed == true)
@@ -202,6 +194,26 @@ public class LightingManager : MonoBehaviour
                 Debug.Log("Day 1 is over");
             }
         }
+
+        //////////////////////////////Game Overs/////////////////////////////
+
+        //Rank D-:Breaking the law by being caught by one of the Police officers.
+        if (other.gameObject == Check_Obj_Cop)
+        {
+            Debug.Log("Ending Rank: D-");
+            Debug.Log("Cop!");
+            GameOver = true;
+        }
+        // Rank D:When you get too close to an NPC without your hamster ball after the rule is enforced on day two.
+
+        if (other.gameObject == Check_Obj_NPC)
+        {
+            Debug.Log("Ending Rank: D");
+            Debug.Log("NPC!");
+            GameOver = true;
+        }
+
+
     }
 
 
