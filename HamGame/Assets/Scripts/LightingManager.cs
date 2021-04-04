@@ -38,8 +38,10 @@ public class LightingManager : MonoBehaviour
     public GameObject Check_Obj_NPC;
 
     public GameObject CutS1;
+    public GameObject CutS2;
 
     VideoPlayer Vid1;
+    VideoPlayer Vid2;
 
 
     void Start()
@@ -53,9 +55,10 @@ public class LightingManager : MonoBehaviour
         bed = false;
 
         Vid1 = CutS1.GetComponent<VideoPlayer>();
+        Vid2 = CutS2.GetComponent<VideoPlayer>();
 
         Vid1.enabled = false;
-
+        Vid2.enabled = false;
     }
 
     private void Update()
@@ -155,7 +158,8 @@ public class LightingManager : MonoBehaviour
             {
                 if (bank == true && ActivebuyBall == true)
                 {
-                 //   TimeOfDay++;
+                    //   TimeOfDay++;
+                    Vid2.enabled = true;
                     Debug.Log("You bought the ball!");
                     buyBall = true;
                 }
@@ -234,7 +238,7 @@ public class LightingManager : MonoBehaviour
         }
 
         //Time where the HamMart is active
-        if (TimeOfDay >= 10 && TimeOfDay <= 15 && buyBall == false)
+        if (TimeOfDay >= 9 && TimeOfDay <= 15 && buyBall == false)
         {
             ActivebuyBall = true;
             Debug.Log("The HamMart is Open");
@@ -252,7 +256,7 @@ public class LightingManager : MonoBehaviour
         }
 
         //Time where the Groceries is active
-        if (TimeOfDay >= 10 && TimeOfDay <= 15 && groceries == false)
+        if (TimeOfDay >= 9 && TimeOfDay <= 15 && groceries == false)
         {
             Activegroceries= true;
             Debug.Log("The Grocerie store is Open");
