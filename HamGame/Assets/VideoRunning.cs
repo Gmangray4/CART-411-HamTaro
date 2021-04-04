@@ -19,6 +19,8 @@ public class VideoRunning : MonoBehaviour
     public GameObject Player;
     public GameObject VidUI;
 
+    bool videoEnd = false;
+
 
     // Start is called before the first frame update
     void Start()
@@ -42,18 +44,24 @@ public class VideoRunning : MonoBehaviour
             vidDisplay.enabled = true;
         }
         Vid.loopPointReached += OnMovieFinished; // loopPointReached is the event for the end of the video
+
+        if(videoEnd == true) 
+        {
+            Time.TimeOfDay = Time.TimeOfDay + 1;
+            PlayerMovement.enabled = true;
+            PlayerCam.enabled = true;
+            vidDisplay.enabled = false;
+            Vid.enabled = false;
+            videoEnd = false;
+        }
     }
 
   
     void OnMovieFinished(VideoPlayer player)
     {
         Debug.Log("Event for movie end called");
-        Time.TimeOfDay = Time.TimeOfDay + 1;
-        PlayerMovement.enabled = true;
-        PlayerCam.enabled = true;
-        vidDisplay.enabled = false;
-        Vid.enabled = false;
         player.Stop();
+        videoEnd = true;
 }
 
 }
