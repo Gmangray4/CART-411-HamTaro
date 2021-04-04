@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Video;
 
 [ExecuteAlways]
 public class LightingManager : MonoBehaviour
@@ -7,7 +8,7 @@ public class LightingManager : MonoBehaviour
     [SerializeField] private Light DirectionalLight;
     [SerializeField] private LightingPreset Preset;
     //Variables
-    [SerializeField, Range(0, 24)] private float TimeOfDay;
+    [SerializeField, Range(0, 24)] public float TimeOfDay;
 
     private bool bank;
     private bool buyBall;
@@ -36,8 +37,9 @@ public class LightingManager : MonoBehaviour
     public GameObject Check_Obj_Cop;
     public GameObject Check_Obj_NPC;
 
+    public GameObject CutS1;
 
-
+    VideoPlayer Vid1;
 
 
     void Start()
@@ -47,9 +49,12 @@ public class LightingManager : MonoBehaviour
         buyBall = false;
         groceries = false;
         vistGF = false;
-    
         allTasksDone = false;
         bed = false;
+
+        Vid1 = CutS1.GetComponent<VideoPlayer>();
+
+        Vid1.enabled = true;
 
     }
 
@@ -134,7 +139,8 @@ public class LightingManager : MonoBehaviour
         {
             if (bank == false && Activebank == true)
             {
-                TimeOfDay ++;
+                
+                //TimeOfDay ++;
                 Debug.Log("You have gone to the bank");
                 bank = true;    
             }
@@ -149,7 +155,7 @@ public class LightingManager : MonoBehaviour
             {
                 if (bank == true && ActivebuyBall == true)
                 {
-                    TimeOfDay++;
+                 //   TimeOfDay++;
                     Debug.Log("You bought the ball!");
                     buyBall = true;
                 }
@@ -164,7 +170,7 @@ public class LightingManager : MonoBehaviour
                 if (bank == true && Activegroceries == true)
                 {
                    
-                    TimeOfDay++;
+                    //TimeOfDay++;
                     Debug.Log("You got groceries!");
                     groceries = true;
                 }
@@ -179,7 +185,7 @@ public class LightingManager : MonoBehaviour
                 if (ActivevistGF == true)
                 {
 
-                    TimeOfDay++;
+                  //  TimeOfDay++;
                     Debug.Log("You visted your GF");
                     vistGF = true;
                 }
