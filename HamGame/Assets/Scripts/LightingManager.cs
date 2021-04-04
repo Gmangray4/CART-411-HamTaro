@@ -54,7 +54,7 @@ public class LightingManager : MonoBehaviour
 
         Vid1 = CutS1.GetComponent<VideoPlayer>();
 
-        Vid1.enabled = true;
+        Vid1.enabled = false;
 
     }
 
@@ -139,7 +139,7 @@ public class LightingManager : MonoBehaviour
         {
             if (bank == false && Activebank == true)
             {
-                
+                Vid1.enabled = true;
                 //TimeOfDay ++;
                 Debug.Log("You have gone to the bank");
                 bank = true;    

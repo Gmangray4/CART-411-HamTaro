@@ -12,14 +12,12 @@ public class VideoRunning : MonoBehaviour
     VideoPlayer Vid;
     LightingManager Time;
     ThirdPersonController PlayerMovement;
+    ThirdPersonCamera PlayerCam;
+
     RawImage vidDisplay;
     public GameObject Gol;
     public GameObject Player;
     public GameObject VidUI;
-    public GameObject MoveObj;
-    public GameObject TeloportPonit;
-    
-
 
 
     // Start is called before the first frame update
@@ -30,6 +28,7 @@ public class VideoRunning : MonoBehaviour
         //Vid.enabled = true;
         Time = Gol.GetComponent<LightingManager>();
         PlayerMovement = Player.GetComponent<ThirdPersonController>();
+        PlayerCam = Player.GetComponent<ThirdPersonCamera>();
         vidDisplay = VidUI.GetComponent<RawImage>();
     }
 
@@ -38,6 +37,7 @@ public class VideoRunning : MonoBehaviour
     {
         if (Vid.enabled == true)
         {
+            PlayerCam.enabled = false;
             PlayerMovement.enabled = false;
             vidDisplay.enabled = true;
         }
@@ -50,6 +50,7 @@ public class VideoRunning : MonoBehaviour
         Debug.Log("Event for movie end called");
         Time.TimeOfDay = Time.TimeOfDay + 1;
         PlayerMovement.enabled = true;
+        PlayerCam.enabled = true;
         vidDisplay.enabled = false;
         Vid.enabled = false;
         player.Stop();
