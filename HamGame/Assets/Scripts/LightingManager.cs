@@ -39,9 +39,13 @@ public class LightingManager : MonoBehaviour
 
     public GameObject CutS1;
     public GameObject CutS2;
+    public GameObject CutS3;
+    public GameObject CutS4;
 
     VideoPlayer Vid1;
     VideoPlayer Vid2;
+    VideoPlayer Vid3;
+    VideoPlayer Vid4;
 
 
     void Start()
@@ -56,9 +60,13 @@ public class LightingManager : MonoBehaviour
 
         Vid1 = CutS1.GetComponent<VideoPlayer>();
         Vid2 = CutS2.GetComponent<VideoPlayer>();
+        Vid3 = CutS3.GetComponent<VideoPlayer>();
+        Vid4 = CutS4.GetComponent<VideoPlayer>();
 
         Vid1.enabled = false;
         Vid2.enabled = false;
+        Vid3.enabled = false;
+        Vid4.enabled = false;
     }
 
     private void Update()
@@ -173,8 +181,9 @@ public class LightingManager : MonoBehaviour
             {
                 if (bank == true && Activegroceries == true)
                 {
-                   
+
                     //TimeOfDay++;
+                    Vid3.enabled = true;
                     Debug.Log("You got groceries!");
                     groceries = true;
                 }
@@ -189,7 +198,8 @@ public class LightingManager : MonoBehaviour
                 if (ActivevistGF == true)
                 {
 
-                  //  TimeOfDay++;
+                    //  TimeOfDay++;
+                    Vid4.enabled = true;
                     Debug.Log("You visted your GF");
                     vistGF = true;
                 }
