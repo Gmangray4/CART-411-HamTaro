@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Video;
+using UnityEngine.UI;
 
 [ExecuteAlways]
 public class LightingManager : MonoBehaviour
@@ -49,6 +50,8 @@ public class LightingManager : MonoBehaviour
     VideoPlayer Vid3;
     VideoPlayer Vid4;
 
+    public GameObject UITimeOfDay;
+    Text TimeOfDayDisplay;
 
     void Start()
     {
@@ -69,6 +72,9 @@ public class LightingManager : MonoBehaviour
         Vid2.enabled = false;
         Vid3.enabled = false;
         Vid4.enabled = false;
+
+       TimeOfDayDisplay = UITimeOfDay.GetComponent<Text>();
+
     }
 
     private void Update()
@@ -140,7 +146,8 @@ public class LightingManager : MonoBehaviour
         activeEvents();
         activeCurfur();
         endingRank();
-
+        
+        TimeOfDayDisplay.text = "Hour " + TimeOfDay.ToString();
     }
 
 
