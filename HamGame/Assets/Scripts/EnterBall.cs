@@ -8,6 +8,7 @@ public class EnterBall : MonoBehaviour
     BallController BallControls;
     public GameObject guiObj;
     GameObject player;
+    public GameObject Ball;
 
     public Camera camplayer;
     public Camera camCar;
@@ -46,7 +47,7 @@ public class EnterBall : MonoBehaviour
             guiObj.SetActive(false);
         }
     }
-    void Update()
+    void FixedUpdate()
     {
         if (inVehicle == true && Input.GetKey(KeyCode.F))
         {
@@ -55,8 +56,8 @@ public class EnterBall : MonoBehaviour
             player.transform.parent = null;
             inVehicle = false;
             camplayer.enabled = true;
-            camCar.enabled = false;
-
+            camCar.enabled = false;  
+            player.transform.position = new Vector3(Ball.transform.position.x, Ball.transform.position.y + 5, Ball.transform.position.z);
 
         }
     }

@@ -41,6 +41,8 @@ public class LightingManager : MonoBehaviour
     public GameObject CutS2;
     public GameObject CutS3;
     public GameObject CutS4;
+    public GameObject Ball;
+    public GameObject BallTP;
 
     VideoPlayer Vid1;
     VideoPlayer Vid2;
@@ -168,6 +170,7 @@ public class LightingManager : MonoBehaviour
                 {
                     //   TimeOfDay++;
                     Vid2.enabled = true;
+                    Ball.transform.position = BallTP.transform.position;
                     Debug.Log("You bought the ball!");
                     buyBall = true;
                 }
