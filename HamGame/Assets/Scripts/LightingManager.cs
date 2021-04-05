@@ -50,6 +50,9 @@ public class LightingManager : MonoBehaviour
     VideoPlayer Vid3;
     VideoPlayer Vid4;
 
+    public GameObject COPNPC1;
+    public GameObject PlaneCOPNPC1;
+
     public GameObject UITimeOfDay;
     Text TimeOfDayDisplay;
 
@@ -75,6 +78,8 @@ public class LightingManager : MonoBehaviour
 
        TimeOfDayDisplay = UITimeOfDay.GetComponent<Text>();
 
+        COPNPC1.SetActive(false);
+        PlaneCOPNPC1.SetActive(false);
     }
 
     private void Update()
@@ -148,6 +153,7 @@ public class LightingManager : MonoBehaviour
         endingRank();
         
         TimeOfDayDisplay.text = "Hour " + TimeOfDay.ToString();
+
     }
 
 
@@ -308,6 +314,11 @@ public class LightingManager : MonoBehaviour
         {
             Debug.Log("Curfew Not started yet");
             Curfew = false; 
+        }
+        if (Curfew == true)
+        {
+            COPNPC1.SetActive(true);
+            PlaneCOPNPC1.SetActive(true);
         }
     }
 
