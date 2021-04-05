@@ -552,6 +552,15 @@ MonoBehaviour:
   Check_Obj_bed: {fileID: 0}
   Check_Obj_Cop: {fileID: 0}
   Check_Obj_NPC: {fileID: 0}
+  CutS1: {fileID: 0}
+  CutS2: {fileID: 0}
+  CutS3: {fileID: 0}
+  CutS4: {fileID: 0}
+  Ball: {fileID: 0}
+  BallTP: {fileID: 0}
+  COPNPC1: {fileID: 0}
+  PlaneCOPNPC1: {fileID: 0}
+  UITimeOfDay: {fileID: 0}
 --- !u!1 &880007040
 GameObject:
   m_ObjectHideFlags: 0
@@ -670,7 +679,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400050, guid: 0e7ee4df08df88c4880f43398f9ad2c2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -22.63
+      value: -13
       objectReference: {fileID: 0}
     - target: {fileID: 400050, guid: 0e7ee4df08df88c4880f43398f9ad2c2, type: 3}
       propertyPath: m_LocalPosition.y
@@ -678,7 +687,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400050, guid: 0e7ee4df08df88c4880f43398f9ad2c2, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 33.2
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 400050, guid: 0e7ee4df08df88c4880f43398f9ad2c2, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1380,6 +1389,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   guiObj: {fileID: 1974732979}
+  Ball: {fileID: 0}
   camplayer: {fileID: 1222454128}
   camCar: {fileID: 1604559710}
 --- !u!65 &1753301115
