@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.Video;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 [ExecuteAlways]
 public class LightingManager : MonoBehaviour
@@ -236,9 +237,10 @@ public class LightingManager : MonoBehaviour
         //Rank D-:Breaking the law by being caught by one of the Police officers.
         if (other.gameObject == Check_Obj_Cop)
         {
-            Debug.Log("Ending Rank: D-");
+            Debug.Log("Ending Rank: C-");
             Debug.Log("Cop!");
             GameOver = true;
+            SceneManager.LoadScene(sceneName: "Scenes/GameOverC-");
         }
         // Rank D:When you get too close to an NPC without your hamster ball after the rule is enforced on day two.
 
@@ -247,6 +249,7 @@ public class LightingManager : MonoBehaviour
             Debug.Log("Ending Rank: D");
             Debug.Log("NPC!");
             GameOver = true;
+            SceneManager.LoadScene(sceneName: "Scenes/GameOverD");
         }
 
 
@@ -330,13 +333,15 @@ public class LightingManager : MonoBehaviour
         {
             Debug.Log("Ending Rank: E");
             GameOver = true;
+            SceneManager.LoadScene(sceneName: "Scenes/GameOverE");
         }
- 
+
         //Rank F: Failing to complete any of the tasks on the first day.
-        if (TimeOfDay >= 15 && bank == false || TimeOfDay >= 15 && groceries == false || TimeOfDay >= 15 && vistGF == false)
+        if (TimeOfDay >= 15 && bank == false || TimeOfDay >= 15 && groceries == false || TimeOfDay >= 15 && vistGF == false || TimeOfDay >= 15 && buyBall == false )
         {
             Debug.Log("Ending Rank: F");
             GameOver = true;
+            SceneManager.LoadScene(sceneName: "Scenes/GameOverF");
         }
     }
 
