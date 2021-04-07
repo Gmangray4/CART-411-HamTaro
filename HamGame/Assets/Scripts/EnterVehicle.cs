@@ -56,7 +56,6 @@ public class EnterVehicle : MonoBehaviour
             inVehicle = false;
             camplayer.enabled = true;
             camCar.enabled = false;
-           
         }
 
     //if(inVehicle == true)
