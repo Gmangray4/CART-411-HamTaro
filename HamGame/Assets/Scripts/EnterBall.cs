@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnterBall : MonoBehaviour
 {
-    private bool inVehicle = false;
+    public bool inVehicle = false;
     BallController BallControls;
     public GameObject guiObj;
     GameObject player;

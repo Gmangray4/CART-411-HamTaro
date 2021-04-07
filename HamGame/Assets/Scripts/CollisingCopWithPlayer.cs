@@ -2,33 +2,28 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CheckIfCollisingPlayer : MonoBehaviour
+public class CollisingCopWithPlayer : MonoBehaviour
 {
-
     [SerializeField] private Transform GlobalLocation;
     public GameObject teleportPoint;
     public GameObject Check_Obj;
 
-    public GameObject ball;
-    EnterBall InBall;
-    bool playerInBall;
-
     // Start is called before the first frame update
     void Start()
     {
-        InBall = ball.GetComponent<EnterBall>();
+        
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        playerInBall = InBall.inVehicle;
+
     }
 
     void OnTriggerStay(Collider other)
     {
         //Sends a cube to global to let it know the user is at the bank
-        if (other.gameObject.tag == "Player" && playerInBall == false)
+        if (other.gameObject.tag == "Player")
         {
             Check_Obj.transform.position = GlobalLocation.transform.position;
         }

@@ -229,6 +229,7 @@ public class LightingManager : MonoBehaviour
             if (bed == false && Activebed == true)
             {
                 Debug.Log("Day 1 is over");
+                SceneManager.LoadScene(sceneName: "Scenes/DemoWin");
             }
         }
 
