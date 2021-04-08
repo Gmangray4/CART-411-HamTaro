@@ -24,8 +24,8 @@ public class LightingManager : MonoBehaviour
     public bool ActivebuyBall;
     public bool Activegroceries;
     public bool ActivevistGF;
-   
-    private bool Activebed;
+
+    public bool Activebed;
 
     private bool Curfew;
 

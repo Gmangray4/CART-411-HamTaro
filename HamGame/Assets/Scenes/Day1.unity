@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.25145343, g: 0.31092572, b: 0.361197, a: 1}
+  m_IndirectSpecularColor: {r: 0.25145313, g: 0.31092525, b: 0.36119664, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -9778,6 +9778,17 @@ MonoBehaviour:
   DirectionalLight: {fileID: 41885010}
   Preset: {fileID: 11400000, guid: 5c47bbd9e34f85040b838598ace39592, type: 2}
   TimeOfDay: 7
+  bank: 0
+  buyBall: 0
+  groceries: 0
+  vistGF: 0
+  allTasksDone: 0
+  bed: 0
+  Activebank: 0
+  ActivebuyBall: 0
+  Activegroceries: 0
+  ActivevistGF: 0
+  Activebed: 0
   Check_Obj_bank: {fileID: 437099893}
   Check_Obj_buyBall: {fileID: 1937315878}
   Check_Obj_groceries: {fileID: 1363260294}
@@ -12762,7 +12773,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1217499220
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12838,6 +12849,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ActiveTask: {fileID: 867831016}
+  bankText: {fileID: 352187277}
+  buyBallText: {fileID: 261206374}
+  groceriesText: {fileID: 1261629092}
+  vistGFText: {fileID: 772035720}
+  goHomeText: {fileID: 1644785632}
 --- !u!1 &1221386187
 GameObject:
   m_ObjectHideFlags: 0
