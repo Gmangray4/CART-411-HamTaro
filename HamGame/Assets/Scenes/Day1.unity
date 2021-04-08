@@ -21032,6 +21032,7 @@ GameObject:
   - component: {fileID: 1962955582}
   - component: {fileID: 1962955581}
   - component: {fileID: 1962955584}
+  - component: {fileID: 1962955585}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -21116,6 +21117,19 @@ MonoBehaviour:
   m_VoxelSize: 0.29999998
   m_BuildHeightMesh: 0
   m_NavMeshData: {fileID: 23800000, guid: ce8cbd25919317342987307961e020ec, type: 2}
+--- !u!114 &1962955585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1962955580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7846c7c00057b5540961aa61ea704d65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TaskList: {fileID: 1217499219}
 --- !u!1 &1974732979
 GameObject:
   m_ObjectHideFlags: 0
