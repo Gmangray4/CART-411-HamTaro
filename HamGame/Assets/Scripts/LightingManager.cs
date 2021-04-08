@@ -12,18 +12,18 @@ public class LightingManager : MonoBehaviour
     //Variables
     [SerializeField, Range(0, 24)] public float TimeOfDay;
 
-    private bool bank;
-    private bool buyBall;
-    private bool groceries;
-    private bool vistGF;
+    public bool bank;
+    public bool buyBall;
+    public bool groceries;
+    public bool vistGF;
 
-    private bool allTasksDone;
-    private bool bed;
+    public bool allTasksDone;
+    public bool bed;
 
-    private bool Activebank;
-    private bool ActivebuyBall;
-    private bool Activegroceries;
-    private bool ActivevistGF;
+    public bool Activebank;
+    public bool ActivebuyBall;
+    public bool Activegroceries;
+    public bool ActivevistGF;
    
     private bool Activebed;
 
