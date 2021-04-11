@@ -13,11 +13,13 @@ public class RemainY180 : MonoBehaviour
     public GameObject Obj;
     public float objY;
     private float zArea;
+    public float zAdd;
+    public float xAdd;
 
     void Update()
     {
         zArea = Obj.transform.position.z + 2;
         // plane.transform.position = new Vector3(100, 100, 100);
-        plane.transform.position = new Vector3(Obj.transform.position.x, objY, zArea);
+        plane.transform.position = new Vector3(Obj.transform.position.x + xAdd, objY, zArea + zAdd);
     }
 }
