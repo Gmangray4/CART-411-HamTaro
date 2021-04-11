@@ -29,24 +29,20 @@ public class LightingManager : MonoBehaviour
 
     private bool Curfew;
 
-    private bool GameOver;
+    public bool InteractionCop;
+    public bool InteractionNPC;
 
-    public GameObject Check_Obj_bank;
-    public GameObject Check_Obj_buyBall;
-    public GameObject Check_Obj_groceries;
-    public GameObject Check_Obj_vistGF;
-    public GameObject Check_Obj_bed;
-    public GameObject Check_Obj_Cop;
-    public GameObject Check_Obj_NPC;
+    public GameObject Obj_bank;
+    public GameObject Obj_buyBall;
+    public GameObject Obj_groceries;
+    public GameObject Obj_vistGF;
+    public GameObject Obj_bed;
 
-    public GameObject CutS1;
-    public GameObject CutS2;
-    public GameObject CutS3;
-    public GameObject CutS4;
+
+
     public GameObject Ball;
     public GameObject BallTP;
 
-    VideoPlayer Vid1;
     VideoPlayer Vid2;
     VideoPlayer Vid3;
     VideoPlayer Vid4;
@@ -56,26 +52,20 @@ public class LightingManager : MonoBehaviour
 
     public GameObject UITimeOfDay;
     Text TimeOfDayDisplay;
+    public float TimeSpeed;
 
     void Start()
     {
-       GameOver = false;
-       bank = false;
+       InteractionCop = false;
+       InteractionNPC = false;
+        bank = false;
         buyBall = false;
         groceries = false;
         vistGF = false;
         allTasksDone = false;
         bed = false;
 
-        Vid1 = CutS1.GetComponent<VideoPlayer>();
-        Vid2 = CutS2.GetComponent<VideoPlayer>();
-        Vid3 = CutS3.GetComponent<VideoPlayer>();
-        Vid4 = CutS4.GetComponent<VideoPlayer>();
-
-        Vid1.enabled = false;
-        Vid2.enabled = false;
-        Vid3.enabled = false;
-        Vid4.enabled = false;
+       
 
        TimeOfDayDisplay = UITimeOfDay.GetComponent<Text>();
 
@@ -83,7 +73,7 @@ public class LightingManager : MonoBehaviour
         PlaneCOPNPC1.SetActive(false);
     }
 
-    private void Update()
+    void Update()
     {
         if (Preset == null)
             return;
@@ -92,7 +82,7 @@ public class LightingManager : MonoBehaviour
         {
             //(Replace with a reference to the game time)
             
-            TimeOfDay += Time.deltaTime/45; // gets slower when you diveied 45 
+            TimeOfDay += Time.deltaTime/TimeSpeed; // gets slower when you diveied 45 
             TimeOfDay %= 24; //Modulus to ensure always between 0-24
             UpdateLighting(TimeOfDay / 24f);
         }
@@ -152,79 +142,75 @@ public class LightingManager : MonoBehaviour
         activeEvents();
         activeCurfur();
         endingRank();
-        
+        CheckInteractions();
+
         TimeOfDayDisplay.text = "Hour " + TimeOfDay.ToString();
 
     }
 
 
-    void OnTriggerEnter(Collider other)
+    void CheckInteractions()
     {
 
         // Checks if the user goes to the bank
-        if (other.gameObject == Check_Obj_bank)
+        if (Obj_bank.GetComponent<InteractTask>().InteractionComplete == true)
         {
-            if (bank == false && Activebank == true)
+            if (bank == false)
             {
-                Vid1.enabled = true;
-                //TimeOfDay ++;
+                TimeOfDay++;
                 Debug.Log("You have gone to the bank");
-                bank = true;    
+                bank = true;
             }
+
         }
 
-        //Not working
+
+
         // Checks if the user goes to HamMart to buy the ball
-        if (other.gameObject == Check_Obj_buyBall)
+        if (Obj_buyBall.GetComponent<InteractTask>().InteractionComplete == true)
         {
-
-            if (buyBall == false) 
+            if (buyBall == false)
             {
-                if (bank == true && ActivebuyBall == true)
-                {
-                    //   TimeOfDay++;
-                    Vid2.enabled = true;
-                    Ball.transform.position = BallTP.transform.position;
-                    Debug.Log("You bought the ball!");
-                    buyBall = true;
-                }
+                TimeOfDay++;
+                Ball.transform.position = BallTP.transform.position;
+                Debug.Log("You bought the ball!");
+                buyBall = true;
             }
+
         }
+
+
 
         // Checks if the user goes to the bank
-        if (other.gameObject == Check_Obj_groceries)
+        if (Obj_groceries.GetComponent<InteractTask>().InteractionComplete == true)
         {
+
             if (groceries == false)
             {
-                if (bank == true && Activegroceries == true)
-                {
 
-                    //TimeOfDay++;
-                    Vid3.enabled = true;
-                    Debug.Log("You got groceries!");
-                    groceries = true;
-                }
+                TimeOfDay++;
+                Debug.Log("You got groceries!");
+                groceries = true;
             }
         }
+
 
         // Checks if the user goes to the bank
-        if (other.gameObject == Check_Obj_vistGF)
+        if (Obj_vistGF.GetComponent<InteractTask>().InteractionComplete == true)
         {
-            if (vistGF == false) 
+            if (vistGF == false)
             {
-                if (ActivevistGF == true)
-                {
 
-                    //  TimeOfDay++;
-                    Vid4.enabled = true;
-                    Debug.Log("You visted your GF");
-                    vistGF = true;
-                }
+
+                TimeOfDay++;
+                Debug.Log("You visted your GF");
+                vistGF = true;
+
             }
-            
+
         }
 
-        if (other.gameObject == Check_Obj_bed)
+        if (Obj_bed.GetComponent<InteractTask>().InteractionComplete == true)
         {
             if (bed == false && Activebed == true)
             {
@@ -233,26 +219,25 @@ public class LightingManager : MonoBehaviour
             }
         }
 
-        //////////////////////////////Game Overs/////////////////////////////
-
         //Rank D-:Breaking the law by being caught by one of the Police officers.
-        if (other.gameObject == Check_Obj_Cop)
+        if (InteractionCop == true)
         {
             Debug.Log("Ending Rank: C-");
             Debug.Log("Cop!");
-            GameOver = true;
+          
             SceneManager.LoadScene(sceneName: "Scenes/GameOverC-");
         }
         // Rank D:When you get too close to an NPC without your hamster ball after the rule is enforced on day two.
 
-        if (other.gameObject == Check_Obj_NPC)
+        if (InteractionNPC == true)
         {
             Debug.Log("Ending Rank: D");
             Debug.Log("NPC!");
-            GameOver = true;
+        
             SceneManager.LoadScene(sceneName: "Scenes/GameOverD");
         }
 
+        //////////////////////////////Game Overs/////////////////////////////
 
     }
 
@@ -333,7 +318,7 @@ public class LightingManager : MonoBehaviour
         if (TimeOfDay >= 23 && bed == false)
         {
             Debug.Log("Ending Rank: E");
-            GameOver = true;
+        
             SceneManager.LoadScene(sceneName: "Scenes/GameOverE");
         }
 
@@ -341,7 +326,7 @@ public class LightingManager : MonoBehaviour
         if (TimeOfDay >= 15 && bank == false || TimeOfDay >= 15 && groceries == false || TimeOfDay >= 15 && vistGF == false || TimeOfDay >= 15 && buyBall == false )
         {
             Debug.Log("Ending Rank: F");
-            GameOver = true;
+         
             SceneManager.LoadScene(sceneName: "Scenes/GameOverF");
         }
     }
