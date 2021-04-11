@@ -45,6 +45,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Decor layering effect
+  - name: Decor
+    uniqueID: 2002483195
+    locked: 0
+  - name: NPC
+    uniqueID: 1750953229
+    locked: 0
+  - name: Player
     uniqueID: 1102268995
     locked: 0
