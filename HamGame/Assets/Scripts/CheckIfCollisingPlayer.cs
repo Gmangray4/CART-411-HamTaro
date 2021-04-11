@@ -5,18 +5,20 @@ using UnityEngine;
 public class CheckIfCollisingPlayer : MonoBehaviour
 {
 
-    [SerializeField] private Transform GlobalLocation;
-    public GameObject teleportPoint;
-    public GameObject Check_Obj;
 
+    public GameObject Golble;
+    public GameObject player;
     public GameObject ball;
+    public GameObject TextImage;
     EnterBall InBall;
     bool playerInBall;
+    bool ContactMade;
 
     // Start is called before the first frame update
     void Start()
     {
         InBall = ball.GetComponent<EnterBall>();
+        ContactMade = false;
     }
 
     // Update is called once per frame
@@ -25,20 +27,34 @@ public class CheckIfCollisingPlayer : MonoBehaviour
         playerInBall = InBall.inVehicle;
     }
 
-    void OnTriggerStay(Collider other)
+    void Update()
+    {
+        if (ContactMade == true)
+        {
+            TextImage.SetActive(true);
+            StartCoroutine(timer());
+            player.GetComponent<ThirdPersonController>().enabled = false;
+            player.GetComponent<ThirdPersonCamera>().enabled = false;
+            ContactMade = false;
+        }
+    }
+
+    void OnTriggerEnter(Collider other)
     {
         //Sends a cube to global to let it know the user is at the bank
         if (other.gameObject.tag == "Player" && playerInBall == false)
         {
-            Check_Obj.transform.position = GlobalLocation.transform.position;
+            ContactMade = true;
         }
     }
-    void OnTriggerExit(Collider other)
+
+    IEnumerator timer()
     {
-        //Sends a cube away from global to let it know the user is away bank
-        if (other.gameObject.tag == "Player")
-        {
-            Check_Obj.transform.position = teleportPoint.transform.position;
-        }
+
+        Debug.Log("Your enter Coroutine at" + Time.time);
+        yield return new WaitForSeconds(5.0f);
+        TextImage.SetActive(false);
+        Golble.GetComponent<LightingManager>().InteractionNPC = true;
     }
+
 }

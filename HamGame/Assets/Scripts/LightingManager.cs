@@ -95,7 +95,7 @@ public class LightingManager : MonoBehaviour
     }
 
 
-    private void UpdateLighting(float timePercent)
+    public void UpdateLighting(float timePercent)
     {
         //Set ambient and fog
         RenderSettings.ambientLight = Preset.AmbientColor.Evaluate(timePercent);
@@ -112,7 +112,7 @@ public class LightingManager : MonoBehaviour
     }
 
     //Try to find a directional light to use if we haven't set one
-    private void OnValidate()
+    public void OnValidate()
     {
         if (DirectionalLight != null)
             return;
@@ -137,7 +137,7 @@ public class LightingManager : MonoBehaviour
         }
     }
 
-    private void FixedUpdate()
+    public void FixedUpdate()
     {
         activeEvents();
         activeCurfur();
@@ -225,7 +225,6 @@ public class LightingManager : MonoBehaviour
         {
             Debug.Log("Ending Rank: C-");
             Debug.Log("Cop!");
-          
             SceneManager.LoadScene(sceneName: "Scenes/GameOverC-");
         }
         // Rank D:When you get too close to an NPC without your hamster ball after the rule is enforced on day two.
