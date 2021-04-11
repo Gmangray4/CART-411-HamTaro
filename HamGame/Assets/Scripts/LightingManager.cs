@@ -143,8 +143,9 @@ public class LightingManager : MonoBehaviour
         activeCurfur();
         endingRank();
         CheckInteractions();
+        IntaractionReady();
 
-        TimeOfDayDisplay.text = "Hour " + TimeOfDay.ToString();
+       TimeOfDayDisplay.text = "Hour " + TimeOfDay.ToString();
 
     }
 
@@ -267,6 +268,7 @@ public class LightingManager : MonoBehaviour
         if (TimeOfDay >= 10 && TimeOfDay <= 15 && vistGF == false)
         {
             ActivevistGF = true;
+       
             Debug.Log("The GF is home");
         }
 
@@ -308,6 +310,52 @@ public class LightingManager : MonoBehaviour
         {
             COPNPC1.SetActive(true);
             PlaneCOPNPC1.SetActive(true);
+        }
+    }
+
+    void IntaractionReady()
+    {
+        if(Activebank == true && bank == false) {
+            Obj_bank.SetActive(true);
+        }
+        else
+        {
+            Obj_bank.SetActive(false);
+        }
+
+        if (ActivebuyBall == true && buyBall == false && bank == true)
+        {
+            Obj_buyBall.SetActive(true);
+        }
+        else
+        {
+            Obj_buyBall.SetActive(false);
+
+        }
+        if (Activegroceries == true && groceries == false && bank == true)
+        {
+            Obj_groceries.SetActive(true);
+        }
+        else
+        {
+            Obj_groceries.SetActive(false);
+        }
+
+        if (ActivevistGF == true && vistGF == false)
+        {
+            Obj_vistGF.SetActive(true);
+        }
+        else
+        {
+            Obj_vistGF.SetActive(false);
+        }
+        if (Activebed == true && bed == false)
+        {
+            Obj_bed.SetActive(true);
+        }
+        else
+        {
+            Obj_bed.SetActive(false);
         }
     }
 
