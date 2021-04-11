@@ -16593,6 +16593,7 @@ GameObject:
   - component: {fileID: 1278361086}
   - component: {fileID: 1278361085}
   - component: {fileID: 1278361084}
+  - component: {fileID: 1278361088}
   m_Layer: 0
   m_Name: PlayerMarkSprite
   m_TagString: Untagged
@@ -16697,6 +16698,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1278361088
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1278361083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96319328ff85b33499f629a55dac1d6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Char: {fileID: 1791811624}
+  left: {fileID: 21300000, guid: 6d398830ba99fd8459df7df543ab4afa, type: 3}
+  right: {fileID: 21300000, guid: 7aa454e05bb729446bfd6ca463d2c264, type: 3}
+  pos1: {x: 0, y: 0}
+  pos2: {x: 0, y: 0}
+  speed: 0
 --- !u!1 &1363260294
 GameObject:
   m_ObjectHideFlags: 0
