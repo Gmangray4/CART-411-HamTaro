@@ -42,15 +42,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Default
-    uniqueID: 0
-    locked: 0
-  - name: Decor
+  - name: Everything
     uniqueID: 2002483195
     locked: 0
-  - name: NPC
-    uniqueID: 1750953229
-    locked: 0
-  - name: Player
-    uniqueID: 1102268995
+  - name: Default
+    uniqueID: 0
     locked: 0
