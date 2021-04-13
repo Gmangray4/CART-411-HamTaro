@@ -31183,6 +31183,7 @@ MonoBehaviour:
   states:
   - {fileID: 885759677}
   - {fileID: 885759675}
+  - {fileID: 885759679}
   triggers: []
   objectFinder:
     useCustomTags: 0
@@ -60850,6 +60851,8 @@ GameObject:
   - component: {fileID: 885759674}
   - component: {fileID: 885759672}
   - component: {fileID: 885759673}
+  - component: {fileID: 885759678}
+  - component: {fileID: 885759679}
   m_Layer: 0
   m_Name: States
   m_TagString: Untagged
@@ -60963,6 +60966,7 @@ MonoBehaviour:
   name: Seek
   triggers:
   - {fileID: 885759672}
+  - {fileID: 885759678}
   ownsObjectFinder: 0
   objectFinder:
     useCustomTags: 0
@@ -61060,6 +61064,68 @@ MonoBehaviour:
   stayCloseToPoint: 1
   anchorPoint: {fileID: 1962955583}
   maxDistanceFromAnchor: 50000
+--- !u!114 &885759678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 885759670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66e16c48c66fdd14b976ec4366310b06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  saveId: -1
+  transitionState: {fileID: 885759679}
+  parentTrigger: {fileID: 0}
+  subTriggers: []
+  ownsObjectFinder: 0
+  objectFinder:
+    useCustomTags: 0
+    tags:
+    - Player
+    cachePoint: 0
+  invertResult: 0
+  distanceThreshold: 3
+  negotiationMode: 0
+--- !u!114 &885759679
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 885759670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b06fe4b26b5c2a840b112db99f0bb88a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  saveId: -1
+  isEnabled: 1
+  name: Idle
+  triggers: []
+  ownsObjectFinder: 0
+  objectFinder:
+    useCustomTags: 0
+    tags:
+    - Player
+    cachePoint: 0
+  movementSpeed: 1
+  rotationSpeed: 360
+  animationStatesComponent: {fileID: 458106077}
+  animationStates:
+  - {fileID: 944047586}
+  sounds: []
+  spawnItemsOnStateEnter: 0
+  itemSpawnMode: 0
+  itemSpawnPoint: {x: 0, y: 0, z: 0}
+  itemSpawnTfm: {fileID: 0}
+  exactPosition: 0
+  totalAmount: 1
+  spawnableItems: []
+  variables: []
+  rotatesTowardTarget: 1
 --- !u!1 &886678544
 GameObject:
   m_ObjectHideFlags: 0
@@ -121404,6 +121470,7 @@ MonoBehaviour:
   initialState: {fileID: 1948709057}
   states:
   - {fileID: 1948709057}
+  - {fileID: 1948709059}
   triggers: []
   objectFinder:
     useCustomTags: 0
@@ -130427,6 +130494,8 @@ GameObject:
   - component: {fileID: 1948709055}
   - component: {fileID: 1948709057}
   - component: {fileID: 1948709054}
+  - component: {fileID: 1948709059}
+  - component: {fileID: 1948709058}
   m_Layer: 0
   m_Name: States
   m_TagString: Untagged
@@ -130515,6 +130584,7 @@ MonoBehaviour:
   name: Wander
   triggers:
   - {fileID: 1948709054}
+  - {fileID: 1948709058}
   ownsObjectFinder: 0
   objectFinder:
     useCustomTags: 0
@@ -130541,6 +130611,68 @@ MonoBehaviour:
   stayCloseToPoint: 1
   anchorPoint: {fileID: 1962955583}
   maxDistanceFromAnchor: 50000
+--- !u!114 &1948709058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1948709053}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66e16c48c66fdd14b976ec4366310b06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  saveId: -1
+  transitionState: {fileID: 1948709059}
+  parentTrigger: {fileID: 0}
+  subTriggers: []
+  ownsObjectFinder: 0
+  objectFinder:
+    useCustomTags: 0
+    tags:
+    - Player
+    cachePoint: 0
+  invertResult: 0
+  distanceThreshold: 3
+  negotiationMode: 0
+--- !u!114 &1948709059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1948709053}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b06fe4b26b5c2a840b112db99f0bb88a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  saveId: -1
+  isEnabled: 1
+  name: Idle
+  triggers: []
+  ownsObjectFinder: 0
+  objectFinder:
+    useCustomTags: 0
+    tags:
+    - Player
+    cachePoint: 0
+  movementSpeed: 1
+  rotationSpeed: 360
+  animationStatesComponent: {fileID: 0}
+  animationStates:
+  - {fileID: 0}
+  sounds: []
+  spawnItemsOnStateEnter: 0
+  itemSpawnMode: 0
+  itemSpawnPoint: {x: 0, y: 0, z: 0}
+  itemSpawnTfm: {fileID: 0}
+  exactPosition: 0
+  totalAmount: 1
+  spawnableItems: []
+  variables: []
+  rotatesTowardTarget: 0
 --- !u!1 &1952629672
 GameObject:
   m_ObjectHideFlags: 0
