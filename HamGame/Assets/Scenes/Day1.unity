@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.25145343, g: 0.31092572, b: 0.361197, a: 1}
+  m_IndirectSpecularColor: {r: 0.25145313, g: 0.31092525, b: 0.36119664, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -110208,7 +110208,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1672483952}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 100.07, y: 3.9734, z: 14}
+  m_LocalPosition: {x: 88, y: 3.9734, z: 14}
   m_LocalScale: {x: 4.809802, y: 4.809802, z: 4.809802}
   m_Children:
   - {fileID: 1279741404}
@@ -129600,8 +129600,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99b31bf6526c68a41a8aa04935ebc0f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  guiObj: {fileID: 1470270450}
-  TextImage: {fileID: 629048724}
+  guiObj: {fileID: 718506973}
+  TextImage: {fileID: 1470270450}
   player: {fileID: 1791811624}
   interact: 0
   InteractionComplete: 0
