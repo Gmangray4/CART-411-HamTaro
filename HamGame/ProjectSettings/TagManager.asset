@@ -8,6 +8,7 @@ TagManager:
   - Projectile
   - Car
   - CarCam
+  - Cop
   layers:
   - Default
   - TransparentFX

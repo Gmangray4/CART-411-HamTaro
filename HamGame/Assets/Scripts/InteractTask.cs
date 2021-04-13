@@ -51,6 +51,7 @@ public class InteractTask : MonoBehaviour
         yield return new WaitForSeconds(5.0f);
         TextImage.SetActive(false);
         InteractionComplete = true;
+        guiObj.SetActive(false);
         player.GetComponent<ThirdPersonController>().enabled = true;
         player.GetComponent<ThirdPersonCamera>().enabled = true;
     }

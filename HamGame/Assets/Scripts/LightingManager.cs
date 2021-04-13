@@ -29,6 +29,8 @@ public class LightingManager : MonoBehaviour
 
     private bool Curfew;
 
+    public bool NPCGameOver;
+
     public bool InteractionCop;
     public bool InteractionNPC;
 
@@ -40,12 +42,11 @@ public class LightingManager : MonoBehaviour
 
 
 
+
+
     public GameObject Ball;
     public GameObject BallTP;
 
-    VideoPlayer Vid2;
-    VideoPlayer Vid3;
-    VideoPlayer Vid4;
 
     public GameObject COPNPC1;
     public GameObject PlaneCOPNPC1;
@@ -64,8 +65,9 @@ public class LightingManager : MonoBehaviour
         vistGF = false;
         allTasksDone = false;
         bed = false;
+        NPCGameOver = false;
 
-       
+
 
        TimeOfDayDisplay = UITimeOfDay.GetComponent<Text>();
 
@@ -221,20 +223,23 @@ public class LightingManager : MonoBehaviour
         }
 
         //Rank D-:Breaking the law by being caught by one of the Police officers.
-        if (InteractionCop == true)
+        if (InteractionCop == true && NPCGameOver == false)
         {
+            NPCGameOver = true;
             Debug.Log("Ending Rank: C-");
             Debug.Log("Cop!");
             SceneManager.LoadScene(sceneName: "Scenes/GameOverC-");
+            NPCGameOver = true;
         }
         // Rank D:When you get too close to an NPC without your hamster ball after the rule is enforced on day two.
 
-        if (InteractionNPC == true)
+        if (InteractionNPC == true && NPCGameOver == false)
         {
+            
             Debug.Log("Ending Rank: D");
             Debug.Log("NPC!");
-        
             SceneManager.LoadScene(sceneName: "Scenes/GameOverD");
+            NPCGameOver = true;
         }
 
         //////////////////////////////Game Overs/////////////////////////////
@@ -362,7 +367,7 @@ public class LightingManager : MonoBehaviour
     void endingRank()
     {
         //Rank E: Falling to go to bed in time on the first day.
-        if (TimeOfDay >= 23 && bed == false)
+        if (TimeOfDay >= 23 && bed == false && NPCGameOver == false)
         {
             Debug.Log("Ending Rank: E");
         
@@ -370,7 +375,7 @@ public class LightingManager : MonoBehaviour
         }
 
         //Rank F: Failing to complete any of the tasks on the first day.
-        if (TimeOfDay >= 15 && bank == false || TimeOfDay >= 15 && groceries == false || TimeOfDay >= 15 && vistGF == false || TimeOfDay >= 15 && buyBall == false )
+        if (TimeOfDay >= 15 && bank == false && NPCGameOver == false || TimeOfDay >= 15 && groceries == false && NPCGameOver == false || TimeOfDay >= 15 && vistGF == false && NPCGameOver == false || TimeOfDay >= 15 && buyBall == false && NPCGameOver == false)
         {
             Debug.Log("Ending Rank: F");
          
