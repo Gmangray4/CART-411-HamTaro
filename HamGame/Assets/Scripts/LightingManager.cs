@@ -25,6 +25,8 @@ public class LightingManager : MonoBehaviour
     public bool Activegroceries;
     public bool ActivevistGF;
 
+
+
     public bool Activebed;
 
     private bool Curfew;
@@ -40,6 +42,10 @@ public class LightingManager : MonoBehaviour
     public GameObject Obj_vistGF;
     public GameObject Obj_bed;
 
+    public GameObject GroceryClerk;
+    public GameObject GF;
+    public GameObject HamMarkClerk;
+    public GameObject Banker;
 
 
 
@@ -162,6 +168,7 @@ public class LightingManager : MonoBehaviour
             {
                 TimeOfDay++;
                 Debug.Log("You have gone to the bank");
+             
                 bank = true;
             }
 
@@ -176,6 +183,7 @@ public class LightingManager : MonoBehaviour
             {
                 TimeOfDay++;
                 Ball.transform.position = BallTP.transform.position;
+           
                 Debug.Log("You bought the ball!");
                 buyBall = true;
             }
@@ -206,6 +214,7 @@ public class LightingManager : MonoBehaviour
 
 
                 TimeOfDay++;
+               
                 Debug.Log("You visted your GF");
                 vistGF = true;
 
@@ -215,8 +224,10 @@ public class LightingManager : MonoBehaviour
 
         if (Obj_bed.GetComponent<InteractTask>().InteractionComplete == true)
         {
+
             if (bed == false && Activebed == true)
             {
+                NPCGameOver = true;
                 Debug.Log("Day 1 is over");
                 SceneManager.LoadScene(sceneName: "Scenes/DemoWin");
             }
@@ -254,6 +265,7 @@ public class LightingManager : MonoBehaviour
         if(TimeOfDay >= 6 && TimeOfDay <= 15 && bank == false)
         {
             Activebank = true;
+            
             Debug.Log("The Bank is Open");
         }
 
@@ -261,18 +273,20 @@ public class LightingManager : MonoBehaviour
         if (TimeOfDay >= 9 && TimeOfDay <= 15 && buyBall == false)
         {
             ActivebuyBall = true;
+          
             Debug.Log("The HamMart is Open");
         }
         else
         {
             Debug.Log("The HamMart is clsoed");
+
         }
 
         //Time where the Visting your GF is active
         if (TimeOfDay >= 10 && TimeOfDay <= 15 && vistGF == false)
         {
             ActivevistGF = true;
-       
+           
             Debug.Log("The GF is home");
         }
 
@@ -280,6 +294,7 @@ public class LightingManager : MonoBehaviour
         if (TimeOfDay >= 9 && TimeOfDay <= 15 && groceries == false)
         {
             Activegroceries= true;
+           
             Debug.Log("The Grocerie store is Open");
         }
 
@@ -321,37 +336,47 @@ public class LightingManager : MonoBehaviour
     {
         if(Activebank == true && bank == false) {
             Obj_bank.SetActive(true);
+            Banker.SetActive(true);
         }
         else
         {
             Obj_bank.SetActive(false);
+            Banker.SetActive(false);
+
         }
 
         if (ActivebuyBall == true && buyBall == false && bank == true)
         {
             Obj_buyBall.SetActive(true);
+            HamMarkClerk.SetActive(true);
         }
         else
         {
             Obj_buyBall.SetActive(false);
+            HamMarkClerk.SetActive(false);
 
         }
         if (Activegroceries == true && groceries == false && bank == true)
         {
             Obj_groceries.SetActive(true);
+            GroceryClerk.SetActive(true);
+
         }
         else
         {
             Obj_groceries.SetActive(false);
+            GroceryClerk.SetActive(false);
         }
 
         if (ActivevistGF == true && vistGF == false)
         {
             Obj_vistGF.SetActive(true);
+            GF.SetActive(true);
         }
         else
         {
             Obj_vistGF.SetActive(false);
+            GF.SetActive(false);
         }
         if (Activebed == true && bed == false)
         {
