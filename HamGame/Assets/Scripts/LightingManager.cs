@@ -46,7 +46,7 @@ public class LightingManager : MonoBehaviour
     public GameObject GF;
     public GameObject HamMarkClerk;
     public GameObject Banker;
-
+    public GameObject CurfewTime;
 
 
 
@@ -319,16 +319,25 @@ public class LightingManager : MonoBehaviour
         {
             Debug.Log("Curfew started");
             Curfew = true;
+            
         }
         else 
         {
             Debug.Log("Curfew Not started yet");
-            Curfew = false; 
+            Curfew = false;
+            
         }
         if (Curfew == true)
         {
+            CurfewTime.SetActive(true);
             COPNPC1.SetActive(true);
             PlaneCOPNPC1.SetActive(true);
+        }
+        else
+        {
+            CurfewTime.SetActive(false);
+            COPNPC1.SetActive(false);
+            PlaneCOPNPC1.SetActive(false);
         }
     }
 
