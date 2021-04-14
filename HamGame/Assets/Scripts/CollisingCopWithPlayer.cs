@@ -7,6 +7,8 @@ public class CollisingCopWithPlayer : MonoBehaviour
     public GameObject Golble;
     public GameObject player;
     public GameObject TextImage;
+    private bool skip;
+    bool interaction;
 
     bool ContactMade;
 
@@ -14,6 +16,8 @@ public class CollisingCopWithPlayer : MonoBehaviour
     void Start()
     {
         ContactMade = false;
+        skip = false;
+        interaction = false;
     }
 
     // Update is called once per frame
@@ -28,6 +32,14 @@ public class CollisingCopWithPlayer : MonoBehaviour
             player.GetComponent<ThirdPersonController>().enabled = false;
             player.GetComponent<ThirdPersonCamera>().enabled = false;
             ContactMade = false;
+            interaction = true;
+
+        }
+        if (Input.GetKeyDown(KeyCode.Space) && interaction == true)
+        {
+            skip = true;
+            TextImage.SetActive(false);
+            Golble.GetComponent<LightingManager>().InteractionNPC = true;
         }
     }
 
@@ -42,10 +54,12 @@ public class CollisingCopWithPlayer : MonoBehaviour
 
     IEnumerator timer()
     {
-
         Debug.Log("Your enter Coroutine at" + Time.time);
         yield return new WaitForSeconds(5.0f);
-        TextImage.SetActive(false);
-        Golble.GetComponent<LightingManager>().InteractionCop = true;
+        if (skip == false){
+            TextImage.SetActive(false);
+            Golble.GetComponent<LightingManager>().InteractionCop = true;
+        }
+        
     }
 }

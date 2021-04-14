@@ -13,13 +13,18 @@ public class CheckIfCollisingPlayer : MonoBehaviour
     EnterBall InBall;
     bool playerInBall;
     bool ContactMade;
+    bool interaction;
+
+    private bool skip;
 
     // Start is called before the first frame update
     void Start()
     {
         InBall = ball.GetComponent<EnterBall>();
         ContactMade = false;
-    }
+        skip = false;
+        interaction = false;
+}
 
     // Update is called once per frame
     void FixedUpdate()
@@ -36,6 +41,16 @@ public class CheckIfCollisingPlayer : MonoBehaviour
             player.GetComponent<ThirdPersonController>().enabled = false;
             player.GetComponent<ThirdPersonCamera>().enabled = false;
             ContactMade = false;
+            interaction = true;
+
+
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space) && interaction == true)
+        {
+            skip = true;
+            TextImage.SetActive(false);
+            Golble.GetComponent<LightingManager>().InteractionNPC = true;
         }
     }
 
@@ -53,8 +68,13 @@ public class CheckIfCollisingPlayer : MonoBehaviour
 
         Debug.Log("Your enter Coroutine at" + Time.time);
         yield return new WaitForSeconds(5.0f);
-        TextImage.SetActive(false);
-        Golble.GetComponent<LightingManager>().InteractionNPC = true;
+        if(skip == false) 
+        {
+            TextImage.SetActive(false);
+            Golble.GetComponent<LightingManager>().InteractionNPC = true;
+        }
+       
     }
+
 
 }

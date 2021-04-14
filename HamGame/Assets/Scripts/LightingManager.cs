@@ -38,6 +38,10 @@ public class LightingManager : MonoBehaviour
     public bool InteractionCop;
     public bool InteractionNPC;
 
+    bool skip;
+    bool interact;
+    bool interact2;
+
     public GameObject Player;
 
     public GameObject Obj_bank;
@@ -77,7 +81,9 @@ public class LightingManager : MonoBehaviour
         allTasksDone = false;
         bed = false;
         NPCGameOver = false;
-
+        skip = false;
+        interact = false;
+        interact2 = false;
 
 
        TimeOfDayDisplay = UITimeOfDay.GetComponent<Text>();
@@ -414,6 +420,12 @@ public class LightingManager : MonoBehaviour
             Player.GetComponent<ThirdPersonCamera>().enabled = false;
             StartCoroutine(timer1());
             NPCGameOver = true;
+            interact = true;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space) && TimeOfDay >= 23 && bed == false && interact == true)
+        {
+            SceneManager.LoadScene(sceneName: "Scenes/GameOverE");
         }
 
         //Rank F: Failing to complete any of the tasks on the first day.
@@ -425,8 +437,13 @@ public class LightingManager : MonoBehaviour
             Player.GetComponent<ThirdPersonCamera>().enabled = false;
             StartCoroutine(timer2());
             NPCGameOver = true;
+            interact2 = true;
         }
-    }
+        if (Input.GetKeyDown(KeyCode.Space) && TimeOfDay >= 15 && bank == false && interact2 == true || Input.GetKeyDown(KeyCode.Space) && TimeOfDay >= 15 && groceries == false && interact2 == true || Input.GetKeyDown(KeyCode.Space) && TimeOfDay >= 20 && vistGF == false && interact2 == true || Input.GetKeyDown(KeyCode.Space) && TimeOfDay >= 15 && buyBall == false && interact2 == true)
+            {
+            SceneManager.LoadScene(sceneName: "Scenes/GameOverF");
+        }
+        }
 
 
     IEnumerator timer1()
@@ -442,6 +459,7 @@ public class LightingManager : MonoBehaviour
         yield return new WaitForSeconds(5.0f);
         SceneManager.LoadScene(sceneName: "Scenes/GameOverF");
     }
+
 
 
 

@@ -8,25 +8,32 @@ public class InteractTask : MonoBehaviour
     public GameObject TextImage;
     public GameObject player;
     public bool interact;
+    public bool SpaceKeyCoolDown;
     private bool enter = false;
     public bool InteractionComplete;
+    private bool skip;
 
     void Start()
     {
     
         player = GameObject.FindWithTag("Player");
         guiObj.SetActive(false);
+        SpaceKeyCoolDown = false;
+        skip = false;
 
     }
 
     // Update is called once per frame
     void OnTriggerStay(Collider other)
     {
-        if (other.gameObject == player && InteractionComplete == false)
+        if (other.gameObject == player && InteractionComplete == false && interact == false)
         {
             guiObj.SetActive(true);
-            if (Input.GetKey(KeyCode.Space))
+            if (Input.GetKey(KeyCode.Space) && SpaceKeyCoolDown == false)
             {
+                SpaceKeyCoolDown = true;
+                interact = true;
+                StartCoroutine(timer2());
                 guiObj.SetActive(false);
                 TextImage.SetActive(true);
                 player.GetComponent<ThirdPersonController>().enabled = false;
@@ -43,16 +50,41 @@ public class InteractTask : MonoBehaviour
         }
     }
 
+    void Update()
+    {
+        if(Input.GetKey(KeyCode.Space) && SpaceKeyCoolDown == false && interact == true)
+        {
+            skip = true;
+            TextImage.SetActive(false);
+            InteractionComplete = true;
+            guiObj.SetActive(false);
+            player.GetComponent<ThirdPersonController>().enabled = true;
+            player.GetComponent<ThirdPersonCamera>().enabled = true;
+        }
+    }
+
 
     IEnumerator timer()
     {
     
         Debug.Log("Your enter Coroutine at" + Time.time);
         yield return new WaitForSeconds(5.0f);
-        TextImage.SetActive(false);
-        InteractionComplete = true;
-        guiObj.SetActive(false);
-        player.GetComponent<ThirdPersonController>().enabled = true;
-        player.GetComponent<ThirdPersonCamera>().enabled = true;
+        if(skip == false)
+        {
+            TextImage.SetActive(false);
+            InteractionComplete = true;
+            guiObj.SetActive(false);
+            player.GetComponent<ThirdPersonController>().enabled = true;
+            player.GetComponent<ThirdPersonCamera>().enabled = true;
+        }
+       
+    }
+
+    IEnumerator timer2()
+    {
+
+        Debug.Log("Your enter Coroutine at" + Time.time);
+        yield return new WaitForSeconds(1.0f);
+        SpaceKeyCoolDown = false;
     }
 }

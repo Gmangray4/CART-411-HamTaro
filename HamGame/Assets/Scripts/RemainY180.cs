@@ -16,6 +16,8 @@ public class RemainY180 : MonoBehaviour
     public float zAdd;
     public float xAdd;
 
+
+ 
     void Update()
     {
         zArea = Obj.transform.position.z + 2;
