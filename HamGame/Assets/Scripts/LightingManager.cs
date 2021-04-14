@@ -54,8 +54,8 @@ public class LightingManager : MonoBehaviour
     public GameObject BallTP;
 
 
-    public GameObject COPNPC1;
-    public GameObject PlaneCOPNPC1;
+    public GameObject AICop;
+    //public GameObject PlaneCOPNPC1;
 
     public GameObject UITimeOfDay;
     Text TimeOfDayDisplay;
@@ -77,8 +77,8 @@ public class LightingManager : MonoBehaviour
 
        TimeOfDayDisplay = UITimeOfDay.GetComponent<Text>();
 
-        COPNPC1.SetActive(false);
-        PlaneCOPNPC1.SetActive(false);
+        AICop.SetActive(false);
+        
     }
 
     void Update()
@@ -330,14 +330,14 @@ public class LightingManager : MonoBehaviour
         if (Curfew == true)
         {
             CurfewTime.SetActive(true);
-            COPNPC1.SetActive(true);
-            PlaneCOPNPC1.SetActive(true);
+            AICop.SetActive(true);
+            
         }
         else
         {
             CurfewTime.SetActive(false);
-            COPNPC1.SetActive(false);
-            PlaneCOPNPC1.SetActive(false);
+            AICop.SetActive(false);
+            
         }
     }
 
