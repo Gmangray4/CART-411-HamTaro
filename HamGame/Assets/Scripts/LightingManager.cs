@@ -2,6 +2,8 @@ using UnityEngine;
 using UnityEngine.Video;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System.Collections;
+using System.Collections.Generic;
 
 [ExecuteAlways]
 public class LightingManager : MonoBehaviour
@@ -36,6 +38,8 @@ public class LightingManager : MonoBehaviour
     public bool InteractionCop;
     public bool InteractionNPC;
 
+    public GameObject Player;
+
     public GameObject Obj_bank;
     public GameObject Obj_buyBall;
     public GameObject Obj_groceries;
@@ -48,7 +52,8 @@ public class LightingManager : MonoBehaviour
     public GameObject Banker;
     public GameObject CurfewTime;
 
-
+    public GameObject GOMisTaks;
+    public GameObject GOPast23;
 
     public GameObject Ball;
     public GameObject BallTP;
@@ -404,21 +409,39 @@ public class LightingManager : MonoBehaviour
         if (TimeOfDay >= 23 && bed == false && NPCGameOver == false)
         {
             Debug.Log("Ending Rank: E");
-        
-            SceneManager.LoadScene(sceneName: "Scenes/GameOverE");
+            GOPast23.SetActive(true);
+            Player.GetComponent<ThirdPersonController>().enabled = false;
+            Player.GetComponent<ThirdPersonCamera>().enabled = false;
+            StartCoroutine(timer1());
+            NPCGameOver = true;
         }
 
         //Rank F: Failing to complete any of the tasks on the first day.
         if (TimeOfDay >= 15 && bank == false && NPCGameOver == false || TimeOfDay >= 15 && groceries == false && NPCGameOver == false || TimeOfDay >= 20 && vistGF == false && NPCGameOver == false || TimeOfDay >= 15 && buyBall == false && NPCGameOver == false)
         {
             Debug.Log("Ending Rank: F");
-         
-            SceneManager.LoadScene(sceneName: "Scenes/GameOverF");
+            GOMisTaks.SetActive(true);
+            Player.GetComponent<ThirdPersonController>().enabled = false;
+            Player.GetComponent<ThirdPersonCamera>().enabled = false;
+            StartCoroutine(timer2());
+            NPCGameOver = true;
         }
     }
 
 
+    IEnumerator timer1()
+    {
+        Debug.Log("Your enter Coroutine at" + Time.time);
+        yield return new WaitForSeconds(5.0f);
+        SceneManager.LoadScene(sceneName: "Scenes/GameOverE");
+    }
 
+    IEnumerator timer2()
+    {
+        Debug.Log("Your enter Coroutine at" + Time.time);
+        yield return new WaitForSeconds(5.0f);
+        SceneManager.LoadScene(sceneName: "Scenes/GameOverF");
+    }
 
 
 
