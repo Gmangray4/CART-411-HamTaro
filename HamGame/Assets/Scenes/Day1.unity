@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.25145313, g: 0.31092525, b: 0.36119664, a: 1}
+  m_IndirectSpecularColor: {r: 0.25145343, g: 0.31092572, b: 0.361197, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -6468,7 +6468,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 91607643}
   m_LocalRotation: {x: 0.38268343, y: -0, z: -0, w: 0.92387956}
-  m_LocalPosition: {x: 69, y: 2.4648013, z: 105.93}
+  m_LocalPosition: {x: 271, y: 2.4648013, z: 105.93}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0}
   m_Children: []
   m_Father: {fileID: 1995690375}
@@ -31257,7 +31257,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 458106074}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 71, y: 0, z: 110.93}
+  m_LocalPosition: {x: 273, y: 0, z: 110.93}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 944047587}
@@ -60942,7 +60942,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   stayCloseToPoint: 1
-  anchorPoint: {fileID: 1962955583}
+  anchorPoint: {fileID: 2132802733}
   maxDistanceFromAnchor: 50000
 --- !u!114 &885759678
 MonoBehaviour:
@@ -109995,7 +109995,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1672483952}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 88, y: 3.9734, z: 14}
+  m_LocalPosition: {x: 309, y: 3.9734, z: 14}
   m_LocalScale: {x: 4.809802, y: 4.809802, z: 4.809802}
   m_Children:
   - {fileID: 1279741404}
@@ -119799,9 +119799,9 @@ MonoBehaviour:
   runMaxAnimationSpeed: 1
   jumpAnimationSpeed: 1.15
   landAnimationSpeed: 1
-  walkSpeed: 10
+  walkSpeed: 8
   trotSpeed: 6
-  runSpeed: 20
+  runSpeed: 13
   inAirControlAcceleration: 3
   jumpHeight: 0
   gravity: 20
@@ -119863,7 +119863,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1791811624}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -121314,7 +121314,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1809700385}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -150, y: 0.21519876, z: -8.5010605}
+  m_LocalPosition: {x: 49, y: 0.21519876, z: -2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 458358945}
@@ -130320,7 +130320,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   stayCloseToPoint: 1
-  anchorPoint: {fileID: 1962955583}
+  anchorPoint: {fileID: 2132802733}
   maxDistanceFromAnchor: 50000
 --- !u!114 &1948709058
 MonoBehaviour:
@@ -138500,7 +138500,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2045278136}
   m_LocalRotation: {x: 0.38268343, y: -0, z: -0, w: 0.92387956}
-  m_LocalPosition: {x: 14, y: 2.68, z: 6.42894}
+  m_LocalPosition: {x: 213, y: 2.68, z: 12.93}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0}
   m_Children: []
   m_Father: {fileID: 314047887}
@@ -144594,7 +144594,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2132802732}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 268, y: 1, z: -6.42894}
+  m_LocalPosition: {x: 73, y: 0, z: -21}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1995690375}

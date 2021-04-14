@@ -23,6 +23,9 @@ public class EnterBall : MonoBehaviour
         guiObj.SetActive(false);
         camplayer.enabled = true;
         camCar.enabled = false;
+
+        player.transform.position = new Vector3(108,4,10);
+        playerSprite.transform.position = player.transform.position;
     }
 
     // Update is called once per frame
