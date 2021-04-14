@@ -262,7 +262,7 @@ public class LightingManager : MonoBehaviour
     void activeEvents()
     {
         //Time where the bank is active
-        if(TimeOfDay >= 6 && TimeOfDay <= 15 && bank == false)
+        if(TimeOfDay >= 8 && TimeOfDay <= 15 && bank == false)
         {
             Activebank = true;
             
@@ -283,7 +283,7 @@ public class LightingManager : MonoBehaviour
         }
 
         //Time where the Visting your GF is active
-        if (TimeOfDay >= 10 && TimeOfDay <= 15 && vistGF == false)
+        if (TimeOfDay >= 17 && TimeOfDay <= 20 && vistGF == false)
         {
             ActivevistGF = true;
            
@@ -409,7 +409,7 @@ public class LightingManager : MonoBehaviour
         }
 
         //Rank F: Failing to complete any of the tasks on the first day.
-        if (TimeOfDay >= 15 && bank == false && NPCGameOver == false || TimeOfDay >= 15 && groceries == false && NPCGameOver == false || TimeOfDay >= 15 && vistGF == false && NPCGameOver == false || TimeOfDay >= 15 && buyBall == false && NPCGameOver == false)
+        if (TimeOfDay >= 15 && bank == false && NPCGameOver == false || TimeOfDay >= 15 && groceries == false && NPCGameOver == false || TimeOfDay >= 20 && vistGF == false && NPCGameOver == false || TimeOfDay >= 15 && buyBall == false && NPCGameOver == false)
         {
             Debug.Log("Ending Rank: F");
          
