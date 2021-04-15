@@ -398,7 +398,7 @@ public class LightingManager : MonoBehaviour
             Obj_vistGF.SetActive(false);
             GF.SetActive(false);
         }
-        if (Activebed == true && bed == false)
+        if (Activebed == true)
         {
             Obj_bed.SetActive(true);
         }
