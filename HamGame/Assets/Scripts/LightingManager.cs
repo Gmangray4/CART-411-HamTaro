@@ -313,11 +313,12 @@ public class LightingManager : MonoBehaviour
         if (bank == true && buyBall == true && vistGF == true && groceries == true)
         {
             allTasksDone = true;
+          
             Debug.Log("All taskes are done");
         }
 
         //Time where the Bed  is active
-        if (TimeOfDay <= 15 && allTasksDone == true && bed == false)
+        if (allTasksDone == true && bed == false)
         {
             Activebed = true;
             Debug.Log("The bed is active");
