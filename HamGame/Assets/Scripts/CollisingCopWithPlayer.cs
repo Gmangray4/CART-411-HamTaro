@@ -39,7 +39,7 @@ public class CollisingCopWithPlayer : MonoBehaviour
         {
             skip = true;
             TextImage.SetActive(false);
-            Golble.GetComponent<LightingManager>().InteractionNPC = true;
+            Golble.GetComponent<LightingManager>().InteractionCop = true;
         }
     }
 
