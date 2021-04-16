@@ -163,8 +163,7 @@ public class LightingManager : MonoBehaviour
         endingRank();
         CheckInteractions();
         IntaractionReady();
-
-       TimeOfDayDisplay.text = "Hour " + TimeOfDay.ToString();
+        TimeOfDayDisplay.text = TimeOfDay.ToString("0.00");
 
     }
 
