@@ -9,6 +9,8 @@ TagManager:
   - Car
   - CarCam
   - Cop
+  - Ball
+  - CopEye
   layers:
   - Default
   - TransparentFX

@@ -52,6 +52,8 @@ public class InteractTask : MonoBehaviour
 
     void Update()
     {
+
+
         if(Input.GetKey(KeyCode.Space) && SpaceKeyCoolDown == false && interact == true)
         {
             skip = true;

@@ -38,6 +38,7 @@ public class EnterBall : MonoBehaviour
             {
                 guiObj.SetActive(false);
                 player.transform.parent = gameObject.transform;
+                Ball.GetComponent<BoxCollider>().size = new Vector3(1, 1, 1);
                 BallControls.enabled = true;
                 player.SetActive(false);
                 playerSprite.SetActive(false);
@@ -45,6 +46,8 @@ public class EnterBall : MonoBehaviour
                 camCar.enabled = true;
                 camplayer.enabled = false;
                 enterCoolDown = true;
+                Ball.tag = "Player";
+                player.tag = "Ball";
                 StartCoroutine(timer());
             }
         }
@@ -60,6 +63,9 @@ public class EnterBall : MonoBehaviour
     {
         if (inVehicle == true && Input.GetKey(KeyCode.E) && enterCoolDown == false)
         {
+            Ball.tag = "Ball";
+            player.tag = "Player";
+            Ball.GetComponent<BoxCollider>().size = new Vector3 (2,1,2);
             BallControls.enabled = false;
             player.SetActive(true);
             playerSprite.SetActive(true);
