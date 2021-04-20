@@ -19,15 +19,17 @@ public class TitleToControls : MonoBehaviour
     void Update()
     {
   
-   
 
         // If press SPACE, when the Controls image is up, the scene goes to the Intro scene
         if (Input.GetKeyDown(KeyCode.Space))
         {
             SceneManager.LoadScene(sceneName: "Scenes/Controls");
         }
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            SceneManager.LoadScene(sceneName: "Scenes/Controls");
+        }
 
-       
     }
 
 }
